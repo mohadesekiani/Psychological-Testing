@@ -10,9 +10,7 @@ import {  RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    SidebarComponent,FooterComponent,LayoutComponent],
+  declarations: [HomeComponent,SidebarComponent,FooterComponent,LayoutComponent],
   imports: [
     CommonModule,
     SharedModule,
