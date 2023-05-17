@@ -9,13 +9,13 @@ const routes: Routes = [
   { path:'',component:LayoutComponent ,
     children:[
     { path: '', component: HomeComponent },
-    { path: ':id', component: PsychologicalTestComponent },
+    { path: 'psychologicalTest/:id', component: PsychologicalTestComponent },
 
+
+    
+    
     ]
   },
-
-
-
 
 
   //اینو حتما باید اخرین مورد بنویسید
