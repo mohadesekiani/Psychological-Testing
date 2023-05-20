@@ -5,17 +5,20 @@ import { LayoutComponent } from './layout.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from '../home/home.component';
+import { LayoutRoutingModule } from './layout-routing.module';
+import { PsychologicalTestComponent } from '../psychological-test/psychological-test.component';
 
 import {  RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [HomeComponent,SidebarComponent,FooterComponent,LayoutComponent],
+  declarations: [LayoutComponent,HomeComponent,SidebarComponent,FooterComponent,LayoutComponent,PsychologicalTestComponent],
   imports: [
     CommonModule,
+    LayoutRoutingModule,
     SharedModule,
-    RouterModule
-  ]
+    RouterModule,
+  ],
 })
 export class LayoutModule { 
 
