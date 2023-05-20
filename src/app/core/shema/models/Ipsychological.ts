@@ -1,6 +1,6 @@
 export interface IPsychological{
 
     id:number;
-    question:string[];
+    questions:Array<string>;
     title:string;
 }
