@@ -1,1 +1,12 @@
-<p>sighnup works!</p>
+<h2 class="text-2xl font-bold mb-6">ثبت نام در سیستم</h2>
+<form [formGroup]="form"
+(ngSubmit)="onSubmit()"
+>
+    <formly-form
+        [form]="form"
+        [model]="model"
+        [fields]="fields"
+        [options]="options"
+    ></formly-form>
+    <button type="submit"  [disabled]="!form.valid">ثبت نام </button>
+  </form>

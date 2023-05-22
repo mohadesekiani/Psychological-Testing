@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions } from '@ngx-formly/core/public_api';
-import { FormlyFieldConfig } from '@ngx-formly/core/public_api';
+import { Router } from '@angular/router';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
 import { FakeDataService } from 'src/app/core/services/data/fake-data.service';
 import { NotificationService } from 'src/app/core/services/utils/notification.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
