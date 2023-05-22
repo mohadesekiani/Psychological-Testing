@@ -7,20 +7,20 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NotificationService {
 
   constructor(private snackBar: MatSnackBar) { }
-private gSnackbar(background:string,message:string,time?:number){
-  this.snackBar.open(message, 'بستن', {
-    duration:time ? time: 3000, 
-    verticalPosition: 'top', // موقعیت عمودی پیغام (top/bottom)
-    horizontalPosition: 'end', // موقعیت افقی پیغام (start/end/center)
-    panelClass: ['text-white', background, 'text-center'],
+  private gSnackbar(background:string,message:string,time?:number){
+    this.snackBar.open(message, 'بستن', {
+      duration:time ? time: 3000,
+      verticalPosition: 'top', // موقعیت عمودی پیغام (top/bottom)
+      horizontalPosition: 'end', // موقعیت افقی پیغام (start/end/center)
+      panelClass: ['text-white', background, 'text-center'],
 
-  });
-  
+    });
+
 }
 public openSuccess (message:string, time?:number){
-  this.gSnackbar('bg-success', message ,time);
+  this.gSnackbar('bg-green-500', message ,time);
 }
 public openDanger (message:string, time?:number){
-  this.gSnackbar('bg-success', message ,time)
+  this.gSnackbar('bg-green-500', message ,time)
 }
 }

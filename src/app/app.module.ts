@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SharedModule } from './shared/shared.module';
 
 // import { LayoutModule } from './layout/layout.module';
 // import { AuthModule } from './auth/auth.module';
-
-import { NotFoundComponent } from './not-found/not-found.component';
 //import { PsychologicalTestComponent } from './psychological-test/psychological-test.component';
-import { MaterialModule } from './shared/elements/material/material.module';
 // import { AuthComponent } from './auth/auth.component';
 // import { LoginComponent } from './auth/components/login/login.component';
 // import { SighnupComponent } from './auth/components/sighnup/sighnup.component';
@@ -26,16 +25,17 @@ import { MaterialModule } from './shared/elements/material/material.module';
     // AuthComponent,
     // LoginComponent,
     // SighnupComponent,
-    
+
   ],
   imports: [
     //AuthModule,
     //LayoutModule,
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
-    MaterialModule,
+    //MaterialModule,
     //FormlyModule.forRoot(),
     //ReactiveFormsModule,
     // FormlyMaterialModule

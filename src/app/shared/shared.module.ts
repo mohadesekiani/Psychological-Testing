@@ -1,10 +1,13 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { ElementsModule } from './elements/elements.module';
+import { MaterialModule } from './elements/material/material.module';
+
 const SHARED_MODULES = [
   CommonModule,
   ElementsModule,
+  MaterialModule
 ];
 
 @NgModule({
