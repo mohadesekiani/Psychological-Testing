@@ -24,11 +24,17 @@ const SHARED_MODULES = [
           message:'پر کردن این فیلد الزامی است'
         }],
         types: [
-          { name: 'datepicker', component: DatepickerComponent },
+          { wrappers: ['form-field'], name: 'datepicker', component: DatepickerComponent , defaultOptions: {
+            defaultValue: new Date(),
+            templateOptions: {
+              datepickerOptions: {},
+            },
+          }, },
         ],
       }
     ),
 
   ]
+  
 })
 export class ElementsModule { }
