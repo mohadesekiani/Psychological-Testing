@@ -3,12 +3,22 @@ import { FieldType } from '@ngx-formly/core';
 import { MatInput } from '@angular/material/input';
 
 
+
 @Component({
   selector: 'app-datepicker',
   template: `
 
-<mat-form-field class="w-full">
-
+<mat-form-field class="mat-form-field w-full">
+  <input 
+  matInput 
+  [matDatepicker]="picker" 
+  [formControl]="formControl" 
+  [formlyAttributes]="field" 
+  class="mat-input">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<!-- 
 <input
       matInput
       (focus)="picker.open()"
@@ -25,13 +35,14 @@ import { MatInput } from '@angular/material/input';
   <mat-hint>{{ to.hint }}</mat-hint>
   <mat-error>
     <formly-validation-message [field]="field"></formly-validation-message>
-  </mat-error>
-</mat-form-field>
+  </mat-error> -->
 
 
     
 `,
+
+
 })
-export class DatepickerComponent extends FieldType<any> {
+export class DatepickerTypeComponent extends FieldType<any> {
   @ViewChild(MatInput) formFieldControl: MatInput;
 }
