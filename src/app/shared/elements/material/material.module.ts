@@ -11,20 +11,22 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatCardModule,
-    MatSnackBarModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatNativeDateModule
-      ],
+  // imports: [
+  //   CommonModule,
+  //   MatToolbarModule,
+  //   MatGridListModule,
+  //   MatIconModule,
+  //   MatSidenavModule,
+  //   MatListModule,
+  //   MatCardModule,
+  //   MatSnackBarModule,
+  //   MatFormFieldModule,
+  //   MatDatepickerModule,
+  //   MatNativeDateModule,
+  //   MatInputModule
+  //     ],
   exports: [
     MatToolbarModule,
     MatIconModule,
@@ -35,7 +37,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSnackBarModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatInputModule
   ],
   declarations: [],
 })
