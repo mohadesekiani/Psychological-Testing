@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AuthenticationGuard } from '../core/guards/authentication.guard';
 import { HomeComponent } from '../home/home.component';
 import { PsychologicalTestComponent } from '../psychological-test/psychological-test.component';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
 
-  { path:'',component:LayoutComponent ,
+  { path:'',component:LayoutComponent ,canActivate:[AuthenticationGuard],
   children:[
   { path: '', component: HomeComponent },
   { path: 'psychologicalTest/:id', component: PsychologicalTestComponent },
 
-  
-  
+
+
   ]
 },
 

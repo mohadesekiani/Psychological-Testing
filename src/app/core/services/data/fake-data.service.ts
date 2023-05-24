@@ -1,30 +1,33 @@
 import { Injectable } from '@angular/core';
-import * as fakeData from './mock-data'
+
+import { Iauth } from '../../shema/models/Iauth';
 import { IPsychological } from '../../shema/models/Ipsychological';
 import { AbFakeDataService } from './ab-fake-data.service';
-import { Iauth } from '../../shema/models/iauth';
+import * as fakeData from './mock-data';
+
 @Injectable({
   providedIn: 'root'
 })
 export class FakeDataService extends AbFakeDataService{
-
+  private checkedLogin:boolean = false;
 
   public getFakedata(): Array<IPsychological> {
     return fakeData.PsychologicalTests;
   }
   public login(user:Iauth): boolean {
     if (user.username === fakeData.user.username && user.password === fakeData.user.password) {
-      console.log(user,true);
-      
-      
+      this.checkedLogin =true;
+
       // // اطلاعات ورود صحیح است
-       return true;
+       return this.checkedLogin;
     } else {
       console.log(user,false);
-
+      this.checkedLogin = false;
       // اطلاعات ورود نامعتبر است
-      return false;
+      return this.checkedLogin;
     }
   }
-   
+  public checkLoged(): boolean {
+    return this.checkedLogin
+  }
 }
