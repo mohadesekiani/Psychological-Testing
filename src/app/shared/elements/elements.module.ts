@@ -35,6 +35,6 @@ const SHARED_MODULES = [
     ),
 
   ]
-  
+
 })
 export class ElementsModule { }

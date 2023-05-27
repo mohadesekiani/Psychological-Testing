@@ -12,5 +12,5 @@ import { Iauth } from 'src/app/core/shema/models/Iauth';
 
 export let user: Iauth = {
   username: "admin",
-  password: "password123"
+  password: "123"
 };

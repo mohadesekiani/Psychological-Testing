@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Iauth } from '../../shema/models/Iauth';
 import { IPsychological } from '../../shema/models/Ipsychological';
@@ -10,7 +11,9 @@ import * as fakeData from './mock-data';
 })
 export class FakeDataService extends AbFakeDataService{
   private checkedLogin:boolean = false;
-
+    constructor( private router: Router){
+      super();
+    }
   public getFakedata(): Array<IPsychological> {
     return fakeData.PsychologicalTests;
   }
@@ -30,4 +33,15 @@ export class FakeDataService extends AbFakeDataService{
   public checkLoged(): boolean {
     return this.checkedLogin
   }
+  public isValidPostId(testId:number): boolean {
+      if(testId){
+        console.log("111111111111",testId);
+
+      return true;
+      }else{
+        console.log("......");
+        return false;
+      }
+  }
+
 }

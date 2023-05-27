@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+
 @Component({
   selector: 'app-sighnup',
   templateUrl: './sighnup.component.html',
@@ -13,12 +14,14 @@ export class SighnupComponent {
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {
-      key: 'dateOfBirth',
+      key: 'birthDate',
       type: 'datepicker',
       templateOptions: {
         label: 'تاریخ تولد',
+
         placeholder: 'لطفا تاریخ تولد خود را وارد کنید',
         required: true,
+        type:'date',
       },
     },
     {

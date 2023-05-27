@@ -1,7 +1,7 @@
 import { IPsychological } from '../../../shema/models/Ipsychological';
 
 export let  PsychologicalTests:Array<IPsychological> = [
-    {  
+    {
       id:1,
       title:"تست شخصیت شناسی",
       questions:[
@@ -16,7 +16,7 @@ export let  PsychologicalTests:Array<IPsychological> = [
         "اهمیت برنده شدن در بحث برایتان کمتر از ناراحت شدن دیگران است."
     ],
     },
-    { 
+    {
        id:2,
        title:"تست استعداد یابی کودکان ",
       questions:[
