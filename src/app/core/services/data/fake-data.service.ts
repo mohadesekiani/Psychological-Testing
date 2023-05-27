@@ -5,12 +5,14 @@ import { Iauth } from '../../shema/models/Iauth';
 import { IPsychological } from '../../shema/models/Ipsychological';
 import { AbFakeDataService } from './ab-fake-data.service';
 import * as fakeData from './mock-data';
+import { PsychologicalTests } from './mock-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FakeDataService extends AbFakeDataService{
   private checkedLogin:boolean = false;
+  private checkedId:boolean = false;
     constructor( private router: Router){
       super();
     }
@@ -34,14 +36,18 @@ export class FakeDataService extends AbFakeDataService{
     return this.checkedLogin
   }
   public isValidPostId(testId:number): boolean {
-      if(testId){
-        console.log("111111111111",testId);
+      const foundItem =PsychologicalTests.find(item => item.id ===  +testId);
+      if(!foundItem){
+        this.router.navigate(['/notItem']);
+        this.checkedId = false
 
-      return true;
       }else{
-        console.log("......");
-        return false;
-      }
-  }
+        this.checkedId = true;
 
-}
+
+      }
+  return this.checkedId;
+  
+    }
+   
+  }
