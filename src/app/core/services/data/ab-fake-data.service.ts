@@ -11,7 +11,6 @@ export abstract class AbFakeDataService {
   abstract getFakedata():Array<IPsychological>;
   abstract login(user:Iauth):boolean;
   abstract checkLoged():boolean;
-  abstract isValidPostId(testId:number): boolean;
 
 
 }
