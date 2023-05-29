@@ -14,7 +14,7 @@ const routes: Routes = [
   children:[
   { path: '', component: HomeComponent  ,canActivate:[AuthenticationGuard]},
   { path: 'psychologicalTest/:id', component: PsychologicalTestComponent,
-  resolve:{IPsychological:ResolveGuard}
+  resolve:{test:ResolveGuard}
 },
   { path: 'psychologicalTest/notItem', component: NotFoundComponent },
 
