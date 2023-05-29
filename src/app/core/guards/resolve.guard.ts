@@ -10,27 +10,22 @@ import { IPsychological } from '../shema/models/Ipsychological';
 @Injectable({
   providedIn: 'root'
 })
-export class ResolveGuard implements Resolve<IPsychological> {
+export class ResolveGuard implements Resolve<any> {
 constructor(private FakeDataService:FakeDataService,private router:Router){}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): IPsychological | Observable<IPsychological> | Promise<IPsychological> {
-
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>  {
   const id = route.paramMap.get('id');
   let test = this.FakeDataService.getFakedata().find(test =>test.id === +id!)
-  console.log(test);
-
-  if(test){
-    return of(test).pipe(delay(5000))
-
-
-  }else{
+  console.log( id,test);
+  
+  if(!test){    
     return of(null).pipe(
-      delay(5000),
-      tap(()=>this.router.navigate(['/psychologicalTest/notItem']))
-    )
-  }
+      tap(()=> this.router.navigate(['/notItem']))
+      )
+    }else{
+     return of(test)
   }
 
-
+  }
 
 }

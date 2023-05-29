@@ -12,9 +12,9 @@ import { IPsychological } from '../core/shema/models/Ipsychological';
 })
 export class PsychologicalTestComponent {
 
-  constructor( private router:Router,private route:ActivatedRoute){}
+  constructor( private route:ActivatedRoute){}
   testId :number
-  test?:IPsychological
+  test:IPsychological
 
   // selectedId:number;
   // selectedTest?:IPsychological;
@@ -32,10 +32,12 @@ ngOnInit(): void {
     //   if(!this.test){
     //     this.router.navigate(['/psychologicalTest/notItem']);
     //   }
+    
     this.route.data.subscribe((data:Data)=>{
       this.test = data['test']
-
+      
     })
+    console.log(this.route,"---------------",this.test);
 
   }
 }

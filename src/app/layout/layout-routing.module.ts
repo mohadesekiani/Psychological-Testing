@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'psychologicalTest/:id', component: PsychologicalTestComponent,
   resolve:{test:ResolveGuard}
 },
-  { path: 'psychologicalTest/notItem', component: NotFoundComponent },
+  { path: 'notItem', component: NotFoundComponent },
 
 
   ]

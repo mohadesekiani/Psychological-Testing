@@ -9,10 +9,10 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { PsychologicalTestComponent } from '../psychological-test/psychological-test.component';
 
 import {  RouterModule } from '@angular/router';
-
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 @NgModule({
-  declarations: [LayoutComponent,HomeComponent,SidebarComponent,FooterComponent,LayoutComponent,PsychologicalTestComponent],
+  declarations: [NotFoundComponent,LayoutComponent,HomeComponent,SidebarComponent,FooterComponent,LayoutComponent,PsychologicalTestComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
