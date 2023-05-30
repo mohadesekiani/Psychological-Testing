@@ -10,7 +10,8 @@ import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
 
-  { path:'',component:LayoutComponent,
+  { path:'',
+  component:LayoutComponent,
   children:[
   { path: '', component: HomeComponent  ,canActivate:[AuthenticationGuard]},
   { path: 'psychologicalTest/:id', component: PsychologicalTestComponent,

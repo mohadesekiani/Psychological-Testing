@@ -1,3 +1,6 @@
-<p>{{test.id}}</p>
-<p>{{test.title}}</p>
-<p>{{test.questions[0]}}</p>
+<h1>{{test.title}}</h1>
+ <form [formGroup]="form">
+      <formly-form [model]="form.value" [fields]="fields" [form]="form"></formly-form>
+      
+      <button type="submit">Submit</button>
+</form>
