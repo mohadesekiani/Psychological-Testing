@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Iauth } from '../../shema/models/Iauth';
-import { IPsychological } from '../../shema/models/Ipsychological';
 
 @Injectable({
   providedIn: 'root'
 })
 export abstract class AbFakeDataService {
 
-  abstract getFakedata():Array<IPsychological>;
+  abstract getFakedata(): Observable<any>;
+  //abstract getFakedataId(): Observable<any>;
   abstract login(user:Iauth):boolean;
   abstract checkLoged():boolean;
 

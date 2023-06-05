@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FakeDataService } from 'src/app/core/services/data/fake-data.service';
+
+import { FakeDataService } from '../services/data/fake-data.service';
 
 //import { FakeDataService } from '../services/data/fake-data.service';
 @Injectable({

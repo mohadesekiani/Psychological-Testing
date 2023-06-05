@@ -5,9 +5,11 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { NotFoundComponent } from './not-found/not-found.component';
 import { SharedModule } from './shared/shared.module';
 
+//import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+//import { LoadingComponent } from './loading/loading.component';
+//import { NotFoundComponent } from './not-found/not-found.component';
 // import { LayoutModule } from './layout/layout.module';
 // import { AuthModule } from './auth/auth.module';
 //import { PsychologicalTestComponent } from './psychological-test/psychological-test.component';
@@ -20,14 +22,15 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
+    //LoadingComponent,
     //NotFoundComponent,
     //PsychologicalTestComponent,
     // AuthComponent,
     // LoginComponent,
     // SighnupComponent,
-
   ],
   imports: [
+    // MatProgressSpinnerModule,
     //AuthModule,
     //LayoutModule,
     SharedModule,
@@ -41,6 +44,6 @@ import { SharedModule } from './shared/shared.module';
     // FormlyMaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

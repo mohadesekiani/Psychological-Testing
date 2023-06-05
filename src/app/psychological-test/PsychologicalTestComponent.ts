@@ -1,8 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Data } from '@angular/router';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
-import { Observable } from 'rxjs';
 import { FakeDataService } from 'src/app/core/services/data/fake-data.service';
 
 import { IPsychological } from '../core/shema/models/Ipsychological';
@@ -15,7 +14,6 @@ import { LoadingService } from './../core/services/loading/loading.service';
   styleUrls: ['./psychological-test.component.scss'],
 })
 export class PsychologicalTestComponent implements canComponentDeactivate {
-  @ViewChild('input') input: ElementRef;
   testId: number;
   test: IPsychological;
   form = new FormGroup({});
@@ -33,13 +31,7 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
   ) {
     this.questionForm = new FormGroup({});
   }
-  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
-    if (this.input.nativeElement.value !== '') {
-      return confirm('save');
-    } else {
-      return true;
-    }
-  }
+
   ngOnInit(): void {
     this.loadingService.showLoading();
     console.log('1');

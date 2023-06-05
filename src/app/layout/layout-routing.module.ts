@@ -5,28 +5,33 @@ import { AuthenticationGuard } from '../core/guards/authentication.guard';
 import { ResolveGuard } from '../core/guards/resolve.guard';
 import { HomeComponent } from '../home/home.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
-import { PsychologicalTestComponent } from '../psychological-test/psychological-test.component';
+import { PsychologicalTestComponent } from '../psychological-test/PsychologicalTestComponent';
+import { DeactivateGuard } from './../core/guards/deactivate.guard';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
-
-  { path:'',
-  component:LayoutComponent,
-  children:[
-  { path: '', component: HomeComponent  ,canActivate:[AuthenticationGuard]},
-  { path: 'psychologicalTest/:id', component: PsychologicalTestComponent,
-  resolve:{test:ResolveGuard}
-},
-  { path: 'notItem', component: NotFoundComponent },
-
-
-  ]
-},
-
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        component: HomeComponent,
+        canActivate: [AuthenticationGuard],
+      },
+      {
+        path: 'psychologicalTest/:id',
+        component: PsychologicalTestComponent,
+        resolve: { test: ResolveGuard },
+        canDeactivate: [DeactivateGuard],
+      },
+      { path: 'notItem', component: NotFoundComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LayoutRoutingModule { }
+export class LayoutRoutingModule {}
