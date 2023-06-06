@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Data } from '@angular/router';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
+import {
+  FormlyFieldConfig,
+  FormlyFormOptions,
+} from '@ngx-formly/core/public_api';
+import { Observable } from 'rxjs';
 import { FakeDataService } from 'src/app/core/services/data/fake-data.service';
 
 import { IPsychological } from '../core/shema/models/Ipsychological';
@@ -87,5 +91,13 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
         },
       };
     });
+  }
+
+  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+    if (this.form.pristine) {
+      return true;
+    } else {
+      return confirm('اطلاعات ذخیره نشده!');
+    }
   }
 }

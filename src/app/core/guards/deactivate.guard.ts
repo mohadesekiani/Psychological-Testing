@@ -19,6 +19,6 @@ export class DeactivateGuard implements CanDeactivate<canComponentDeactivate> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return component.canDeactivate();
+    return component.canDeactivate?component.canDeactivate():true;
   }
 }

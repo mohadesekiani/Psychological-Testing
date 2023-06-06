@@ -1,12 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Data } from '@angular/router';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
-import { Observable } from 'rxjs';
+import {
+  FormlyFieldConfig,
+  FormlyFormOptions,
+} from '@ngx-formly/core/public_api';
 import { FakeDataService } from 'src/app/core/services/data/fake-data.service';
 
 import { IPsychological } from '../core/shema/models/Ipsychological';
-import { canComponentDeactivate } from './../core/guards/deactivate.guard';
 import { LoadingService } from './../core/services/loading/loading.service';
 
 @Component({
@@ -14,8 +15,7 @@ import { LoadingService } from './../core/services/loading/loading.service';
   templateUrl: './psychological-test.component.html',
   styleUrls: ['./psychological-test.component.scss'],
 })
-export class PsychologicalTestComponent implements canComponentDeactivate {
-  @ViewChild('input') input: ElementRef;
+export class PsychologicalTestComponent {
   testId: number;
   test: IPsychological;
   form = new FormGroup({});
@@ -26,19 +26,13 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
   options: FormlyFormOptions = {};
   title: string;
   questions: Array<any>;
+
   constructor(
     private route: ActivatedRoute,
     private fakeDataService: FakeDataService,
     public loadingService: LoadingService
   ) {
     this.questionForm = new FormGroup({});
-  }
-  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
-    if (this.input.nativeElement.value !== '') {
-      return confirm('save');
-    } else {
-      return true;
-    }
   }
   ngOnInit(): void {
     this.loadingService.showLoading();
