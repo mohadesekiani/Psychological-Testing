@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from '../home/home.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
-import { PsychologicalTestComponent } from '../psychological-test/PsychologicalTestComponent';
+import { PsychologicalTestComponent } from '../psychological-test/psychological-test.component';
 import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingComponent } from './components/loading/loading.component';

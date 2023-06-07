@@ -5,7 +5,7 @@ import { AuthenticationGuard } from '../core/guards/authentication.guard';
 import { ResolveGuard } from '../core/guards/resolve.guard';
 import { HomeComponent } from '../home/home.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
-import { PsychologicalTestComponent } from '../psychological-test/PsychologicalTestComponent';
+import { PsychologicalTestComponent } from '../psychological-test/psychological-test.component';
 import { DeactivateGuard } from './../core/guards/deactivate.guard';
 import { LayoutComponent } from './layout.component';
 

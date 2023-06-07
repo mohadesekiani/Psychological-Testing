@@ -1,11 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, Data } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import {
   FormlyFieldConfig,
   FormlyFormOptions,
 } from '@ngx-formly/core/public_api';
+import { Observable } from 'rxjs';
 import { FakeDataService } from 'src/app/core/services/data/fake-data.service';
+import { canComponentDeactivate } from '../core/guards/deactivate.guard';
 
 import { IPsychological } from '../core/shema/models/Ipsychological';
 import { LoadingService } from './../core/services/loading/loading.service';
@@ -15,7 +17,9 @@ import { LoadingService } from './../core/services/loading/loading.service';
   templateUrl: './psychological-test.component.html',
   styleUrls: ['./psychological-test.component.scss'],
 })
-export class PsychologicalTestComponent {
+export class PsychologicalTestComponent implements canComponentDeactivate {
+  score: any;
+  show: boolean = false;
   testId: number;
   test: IPsychological;
   form = new FormGroup({});
@@ -30,7 +34,8 @@ export class PsychologicalTestComponent {
   constructor(
     private route: ActivatedRoute,
     private fakeDataService: FakeDataService,
-    public loadingService: LoadingService
+    public loadingService: LoadingService,
+    private router: Router
   ) {
     this.questionForm = new FormGroup({});
   }
@@ -89,5 +94,22 @@ export class PsychologicalTestComponent {
         },
       };
     });
+  }
+  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+    if (this.form.pristine || this.show) {
+      return true;
+    } else {
+      return confirm(' آیا برای ترک صفحه مطمئن هستید؟اطلاعات ذخیره نشده است!');
+    }
+  }
+  onCancel(): void {
+    this.router.navigate(['/']);
+  }
+  onSubmit(): void {
+    if (this.form.valid) {
+      this.show = true;
+      var randomNumber = Math.random();
+      this.score = Math.floor(randomNumber * 100);
+    }
   }
 }

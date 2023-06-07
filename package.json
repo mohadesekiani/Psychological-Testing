@@ -24,6 +24,7 @@
     "@ngx-formly/material": "^6.1.6",
     "crypto-js": "^4.1.1",
     "jalali-moment": "^3.3.11",
+    "ngx-skeleton-loader": "^7.0.0",
     "normalize.css": "^8.0.1",
     "persian-tools": "^0.0.5",
     "rxjs": "~7.8.0",
