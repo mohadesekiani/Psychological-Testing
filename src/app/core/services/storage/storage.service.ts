@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AbStorageService } from './ab-storage.service';
+import { ABStorageService } from './ab-storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class StorageService extends AbStorageService {
-
+export class StorageService extends ABStorageService {
   public getStorage(key: string) {
     const value = localStorage.getItem(key);
     return value ? JSON.parse(value) : '';

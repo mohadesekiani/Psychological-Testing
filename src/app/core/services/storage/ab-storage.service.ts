@@ -3,13 +3,12 @@ import CryptoJS from 'crypto-js';
 import SecureStorage from 'secure-web-storage';
 import { environment } from 'src/environments/environment';
 
-
 const SECRET_KEY: string = environment.secretKey;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export abstract class AbStorageService {
+export abstract class ABStorageService {
   secureStorage = new SecureStorage(localStorage, {
     hash: function hash(key): any {
       key = CryptoJS.SHA256(key, SECRET_KEY);
@@ -37,7 +36,6 @@ export abstract class AbStorageService {
 
   abstract clear(): void;
 
-  
   public getCache(key: string | undefined) {
     if (key) {
       const data = this.getStorage(key);

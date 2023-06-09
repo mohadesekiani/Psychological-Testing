@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AbStorageService } from './ab-storage.service';
+import { ABStorageService } from './ab-storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class SecureStorageService extends AbStorageService {
+export class SecureStorageService extends ABStorageService {
   public getStorage(key: string) {
     return this.secureStorage.getItem(key);
   }
@@ -20,5 +20,4 @@ export class SecureStorageService extends AbStorageService {
   public clear(): void {
     return this.secureStorage.clear();
   }
-
 }

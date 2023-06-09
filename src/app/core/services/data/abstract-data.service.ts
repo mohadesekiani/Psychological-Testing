@@ -4,14 +4,11 @@ import { Observable } from 'rxjs';
 import { Iauth } from '../../shema/models/Iauth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export abstract class AbFakeDataService {
-
+export abstract class ABDataService {
   abstract getFakedata(): Observable<any>;
   //abstract getFakedataId(): Observable<any>;
-  abstract login(user:Iauth):boolean;
-  abstract checkLoged():boolean;
-
-
+  abstract login(user: Iauth): boolean;
+  abstract checkLoged(): boolean;
 }

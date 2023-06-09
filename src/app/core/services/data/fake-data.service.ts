@@ -3,14 +3,12 @@ import { Router } from '@angular/router';
 import { delay, Observable, of } from 'rxjs';
 
 import { Iauth } from '../../shema/models/Iauth';
-import { AbFakeDataService } from './ab-fake-data.service';
+import { ABDataService } from './abstract-data.service';
 import * as fakeData from './mock-data';
-
-2;
 @Injectable({
   providedIn: 'root',
 })
-export class FakeDataService extends AbFakeDataService {
+export class FakeDataService extends ABDataService {
   private checkedLogin: boolean = false;
   private checkedId: boolean = false;
   constructor(private router: Router) {

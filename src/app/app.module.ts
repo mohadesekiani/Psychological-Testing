@@ -5,6 +5,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ABDataService } from './core/services/data/abstract-data.service';
+import { DataService } from './core/services/data/data.service';
+import { FakeDataService } from './core/services/data/fake-data.service';
+import { ABStorageService } from './core/services/storage/ab-storage.service';
+import { SecureStorageService } from './core/services/storage/secure-storage.service';
+import { StorageService } from './core/services/storage/storage.service';
 import { SharedModule } from './shared/shared.module';
 
 //import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -19,6 +25,10 @@ import { SharedModule } from './shared/shared.module';
 // import { FormlyModule } from '@ngx-formly/core';
 //import { ReactiveFormsModule } from '@angular/forms';
 // import { FormlyMaterialModule } from '@ngx-formly/material';
+
+//// change this variable to env.production.
+let production = false;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +53,16 @@ import { SharedModule } from './shared/shared.module';
     //ReactiveFormsModule,
     // FormlyMaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ABStorageService,
+      useClass: production ? SecureStorageService : StorageService,
+    },
+    {
+      provide: ABDataService,
+      useClass: production ? DataService : FakeDataService,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
