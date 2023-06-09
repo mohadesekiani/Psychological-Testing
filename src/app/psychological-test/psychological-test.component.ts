@@ -1,14 +1,11 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Data, Router } from '@angular/router';
-import {
-  FormlyFieldConfig,
-  FormlyFormOptions,
-} from '@ngx-formly/core/public_api';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
 import { Observable } from 'rxjs';
-import { FakeDataService } from 'src/app/core/services/data/fake-data.service';
-import { canComponentDeactivate } from '../core/guards/deactivate.guard';
 
+import { canComponentDeactivate } from '../core/guards/deactivate.guard';
+import { ABDataService } from '../core/services/data/abstract-data.service';
 import { IPsychological } from '../core/shema/models/Ipsychological';
 import { LoadingService } from './../core/services/loading/loading.service';
 
@@ -33,7 +30,7 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
 
   constructor(
     private route: ActivatedRoute,
-    private fakeDataService: FakeDataService,
+    private dataService: ABDataService,
     public loadingService: LoadingService,
     private router: Router
   ) {
@@ -42,7 +39,7 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
   ngOnInit(): void {
     this.loadingService.showLoading();
     console.log('1');
-    this.fakeDataService.getTestQuestionsById(this._id).subscribe({
+    this.dataService.getTestQuestionsById(this._id).subscribe({
       next: (res) => {
         this.title = res.title;
         // debugger;

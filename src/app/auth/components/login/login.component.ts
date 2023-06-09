@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  FormlyFieldConfig,
-  FormlyFormOptions,
-} from '@ngx-formly/core/public_api';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
 import { ABDataService } from 'src/app/core/services/data/abstract-data.service';
 import { NotificationService } from 'src/app/core/services/utils/notification.service';
 
@@ -58,8 +55,8 @@ export class LoginComponent {
   onSubmit() {
     if (this.form.valid) {
       if (this.dataService.login(this.model)) {
-        this.notificationService.openSuccess('خوش امدید');
         this.router.navigate(['/']);
+        this.notificationService.openSuccess('خوش امدید');
       } else {
         this.notificationService.openDanger('این کاربر ثبت نام نشده است...');
       }

@@ -11,4 +11,5 @@ export abstract class ABDataService {
   //abstract getFakedataId(): Observable<any>;
   abstract login(user: Iauth): boolean;
   abstract checkLoged(): boolean;
+  abstract getTestQuestionsById(id: number): Observable<any>;
 }

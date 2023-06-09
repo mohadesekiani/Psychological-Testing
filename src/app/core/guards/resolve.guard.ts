@@ -3,17 +3,14 @@ import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@a
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { FakeDataService } from '../services/data/fake-data.service';
+import { ABDataService } from '../services/data/abstract-data.service';
 import { IPsychological } from './../shema/models/Ipsychological';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ResolveGuard implements Resolve<any> {
-  constructor(
-    private FakeDataService: FakeDataService,
-    private router: Router
-  ) {}
+  constructor(private dataService: ABDataService, private router: Router) {}
 
   test: IPsychological;
   resolve(
@@ -32,7 +29,7 @@ export class ResolveGuard implements Resolve<any> {
     //   return of(this.test);
     // }
 
-    return this.FakeDataService.getTestQuestionsById(+id!).pipe(
+    return this.dataService.getTestQuestionsById(+id!).pipe(
       tap((res) => {
         if (!res) {
           this.router.navigate(['/notItem']);

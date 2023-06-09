@@ -5,6 +5,7 @@ import { delay, Observable, of } from 'rxjs';
 import { Iauth } from '../../shema/models/Iauth';
 import { ABDataService } from './abstract-data.service';
 import * as fakeData from './mock-data';
+
 @Injectable({
   providedIn: 'root',
 })
