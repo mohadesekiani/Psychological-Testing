@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
+import {
+  FormlyFieldConfig,
+  FormlyFormOptions,
+} from '@ngx-formly/core/public_api';
 import { ABDataService } from 'src/app/core/services/data/abstract-data.service';
+import { ABStorageService } from 'src/app/core/services/storage/ab-storage.service';
 import { NotificationService } from 'src/app/core/services/utils/notification.service';
 
 @Component({
@@ -19,7 +23,10 @@ export class LoginComponent {
   ) {}
 
   form = new FormGroup({});
-  model = { username: '', password: '' };
+  model: any = {
+    username: '',
+    password: '',
+  };
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {

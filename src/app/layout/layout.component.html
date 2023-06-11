@@ -3,6 +3,13 @@
     <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
     <span class="example-spacer"></span>
     <span>تست روانشناسی</span>
+    <span class="m-2">{{ nameValue }} </span>
+    <div class="flex-auto w-64 ...">
+        <mat-icon  routerLink="PersonComponent" mat-list-icon>person</mat-icon>
+        <mat-icon routerLink="logout" mat-list-icon>exit_to_app</mat-icon>
+
+    </div>
+
   </mat-toolbar>
   <app-loading [isLoading]="isLoading"></app-loading>
     <div class="flex">

@@ -1,4 +1,7 @@
 export interface Iauth {
-    username:string,
-    password:string
+  userInfo: {
+    username: string;
+    password: string;
+  };
+  _token: string;
 }
