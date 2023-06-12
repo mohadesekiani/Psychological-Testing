@@ -35,7 +35,11 @@ export abstract class ABStorageService {
   abstract clearCache(key: string);
 
   abstract clear(): void;
-
+  /**
+   * Get information from the cache based on the key
+   * @param key -the key of the information in the cache
+   * @returns -information about the key in the cache, or 'null' if the key does not exist
+   */
   public getCache(key: string | undefined) {
     if (key) {
       const data = this.getStorage(key);
@@ -45,7 +49,11 @@ export abstract class ABStorageService {
       else return data.value;
     } else return null;
   }
-
+  /**
+   * Storing information in the cache based on the key
+   * @param key -the key of the information in the cache
+   * @param value -the value to be cached
+   */
   public setCache(key: string, value: any) {
     const today = new Date();
     today.setHours(today.getHours() + 1);

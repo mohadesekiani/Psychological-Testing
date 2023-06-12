@@ -19,9 +19,18 @@ export class FakeDataService extends ABDataService {
   ) {
     super();
   }
+  /**
+   * Receive fack data
+   * @returns -  fack data in the format observeble
+   */
   public getFakedata(): Observable<any> {
     return of(fakeData.PsychologicalTests).pipe(delay(3000));
   }
+  /**
+   * login
+   * @param user  -user interformation
+   * @returns -login  (true or false)
+   */
   public login(user: any): boolean {
     console.log(user);
     user._token = fakeData.user._token;
@@ -41,12 +50,19 @@ export class FakeDataService extends ABDataService {
       return this.checkedLogin;
     }
   }
+  /**
+   * Checking the login status
+   * @returns -  Login status (true or false)
+   */
   public checkLoged(): boolean {
     return this.checkedLogin;
   }
-  //TODO مطالعه
+  /**
+   * Receive test questions based on ID
+   * @param id -test ID
+   * @returns - Test questions in the format observeble
+   */
   public getTestQuestionsById(id: number): Observable<any> {
-    //return of(fakeData.PsychologicalTests.find((item) => item.id === +id));
     return of(fakeData.PsychologicalTests.find((item) => item.id === +id)).pipe(
       delay(3000)
     );

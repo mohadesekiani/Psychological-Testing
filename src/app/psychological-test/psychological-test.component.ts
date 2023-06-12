@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Data, Router } from '@angular/router';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core/public_api';
+import {
+  FormlyFieldConfig,
+  FormlyFormOptions,
+} from '@ngx-formly/core/public_api';
 import { Observable } from 'rxjs';
 
 import { canComponentDeactivate } from '../core/guards/deactivate.guard';
@@ -38,23 +41,23 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
   }
   ngOnInit(): void {
     this.loadingService.showLoading();
-    console.log('1');
+    //console.log('1');
     this.dataService.getTestQuestionsById(this._id).subscribe({
       next: (res) => {
         this.title = res.title;
         // debugger;
         this.fillQuestionFields(res.questions);
-        console.log('2');
+        // console.log('2');
 
         this.loadingService.hideLoading();
       },
       error: (err) => {
-        console.log('3');
+        // console.log('3');
 
         this.loadingService.hideLoading();
       },
       complete: () => {
-        console.log('4');
+        //  console.log('4');
         this.loadingService.hideLoading();
       },
     });
@@ -64,7 +67,10 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
       this.test = data['test'];
     });
   }
-
+  /**
+   * create the question fields
+   * @param questions A array of questions
+   */
   fillQuestionFields(questions: Array<any>) {
     this.fields = questions.map((item, index) => {
       const questionKey = `question${index + 1}`;
@@ -92,6 +98,10 @@ export class PsychologicalTestComponent implements canComponentDeactivate {
       };
     });
   }
+  /**
+   * Checking the possibility of leaving the page before saving the information
+   * @returns true or false
+   */
   canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
     if (this.form.pristine || this.show) {
       return true;
