@@ -1,5 +1,5 @@
 <div>
-  <mat-toolbar>
+  <mat-toolbar class="header">
     <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
     <span class="example-spacer"></span>
     <span>تست روانشناسی</span>
@@ -19,7 +19,7 @@
             >
             </app-sidebar>
         </div>
-        <div class="content" >
+        <div class="content scrollable-content" >
             <router-outlet></router-outlet>
         </div>
     </div>

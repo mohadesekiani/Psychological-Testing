@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ABDataService } from '../services/data/abstract-data.service';
@@ -19,9 +25,13 @@ export class AuthenticationGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (this.dataService.checkLoged()) {
+      console.log('log', this.dataService.checkLoged());
+
       return true; // اجازه دسترسی به صفحه مورد نظر
     } else {
       this.router.navigate(['/auth/login']);
+      console.log('log', this.dataService.checkLoged());
+
       return false;
     }
   }
