@@ -27,7 +27,12 @@ $psychological-testing-theme: mat.define-light-theme((
     primary: $psychological-testing-primary,
     accent: $psychological-testing-accent,
     warn: $psychological-testing-warn,
-  )
+  ),
+  typography:
+  mat.define-typography-config(
+    $font-family: "IRANSansXFaNum",
+  ),
+  density:0,
 ));
 
 // Include theme styles for core and each component used in your app.

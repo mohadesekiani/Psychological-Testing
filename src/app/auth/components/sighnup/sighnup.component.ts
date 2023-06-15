@@ -5,12 +5,11 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 @Component({
   selector: 'app-sighnup',
   templateUrl: './sighnup.component.html',
-  styleUrls: ['./sighnup.component.scss']
+  styleUrls: ['./sighnup.component.scss'],
 })
 export class SighnupComponent {
-
   form = new FormGroup({});
-  model = { username: '', password: '',birthDate:'' };
+  model = { birthDate: '', email: '', password: '' };
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {
@@ -21,7 +20,7 @@ export class SighnupComponent {
 
         placeholder: 'لطفا تاریخ تولد خود را وارد کنید',
         required: true,
-        type:'date',
+        type: 'date',
       },
     },
     {
@@ -44,12 +43,10 @@ export class SighnupComponent {
         type: 'password',
       },
     },
-
   ];
   onSubmit() {
     if (this.form.valid) {
-
+      console.log(this.model);
+    }
   }
-
-}
 }

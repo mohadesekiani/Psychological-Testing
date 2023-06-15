@@ -8,6 +8,10 @@
         [fields]="fields"
         [options]="options"
     ></formly-form>
-    <button type="submit" class="signup-button" [disabled]="!form.valid">ثبت نام </button>
+    <button type="submit" class="status-first-button"
+    [ngClass]="form.valid?'signup-button':''"
+    >ثبت نام</button>
+
     <a routerLink="/auth/login" class="blue-underline m-2">ورود</a>
   </form>
+  
