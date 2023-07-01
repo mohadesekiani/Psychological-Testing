@@ -5,6 +5,7 @@ import {
   FormlyFieldConfig,
   FormlyFormOptions,
 } from '@ngx-formly/core/public_api';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { ABDataService } from 'src/app/core/services/data/abstract-data.service';
 import { ABStorageService } from 'src/app/core/services/storage/ab-storage.service';
 import { NotificationService } from 'src/app/core/services/utils/notification.service';
@@ -16,7 +17,7 @@ import { NotificationService } from 'src/app/core/services/utils/notification.se
 })
 export class LoginComponent {
   constructor(
-    private dataService: ABDataService,
+    private authService: AuthService,
     private notificationService: NotificationService,
     private router: Router
   ) {}
@@ -60,7 +61,7 @@ export class LoginComponent {
   ];
   onSubmit() {
     if (this.form.valid) {
-      if (this.dataService.login(this.model)) {
+      if (this.authService.login(this.model)) {
         this.router.navigate(['/']);
         this.notificationService.openSuccess('خوش امدید');
       } else {

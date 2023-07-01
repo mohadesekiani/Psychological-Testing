@@ -14,12 +14,12 @@ export class DataService extends ABDataService {
   getFakedata(): Observable<any> {
     throw new Error('Method not implemented.');
   }
-  login(user: Iauth): boolean {
-    throw new Error('Method not implemented.');
-  }
-  checkLoged(): boolean {
-    throw new Error('Method not implemented.');
-  }
+  // login(user: Iauth): boolean {
+  //   throw new Error('Method not implemented.');
+  // }
+  // checkLoged(): boolean {
+  //   throw new Error('Method not implemented.');
+  // }
   getTestQuestionsById(id: number): Observable<any> {
     throw new Error('Method not implemented.');
   }

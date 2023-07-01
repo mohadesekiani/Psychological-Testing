@@ -8,7 +8,5 @@ import { Iauth } from '../../shema/models/Iauth';
 })
 export abstract class ABDataService {
   abstract getFakedata(): Observable<any>;
-  abstract login(user: Iauth): boolean;
-  abstract checkLoged(): boolean;
   abstract getTestQuestionsById(id: number): Observable<any>;
 }
