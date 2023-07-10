@@ -1,0 +1,12 @@
+<h2 class="text-2xl font-bold mb-6">ورود به سیستم</h2>
+<form [formGroup]="form"
+(ngSubmit)="onSubmit()"
+>
+    <formly-form
+        [form]="form"
+        [model]="model"
+        [fields]="fields"
+        [options]="options"
+    ></formly-form>
+    <button type="submit"  [disabled]="!form.valid">Login</button>
+  </form>

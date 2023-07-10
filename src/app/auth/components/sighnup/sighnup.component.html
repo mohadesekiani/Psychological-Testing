@@ -1,0 +1,17 @@
+<h2 class="text-2xl font-bold mb-6">ثبت نام در سیستم</h2>
+<form [formGroup]="form"
+(ngSubmit)="onSubmit()"
+>
+    <formly-form
+        [form]="form"
+        [model]="model"
+        [fields]="fields"
+        [options]="options"
+    ></formly-form>
+    <button type="submit" class="status-first-button"
+    [ngClass]="form.valid?'signup-button':''"
+    >ثبت نام</button>
+
+    <a routerLink="/auth/login" class="blue-underline m-2">ورود</a>
+  </form>
+  

@@ -1,0 +1,15 @@
+
+<h1>{{ title }}</h1>
+<form [formGroup]="form" *ngIf="!show">
+  <formly-form [model]="form.value" [fields]="fields" [form]="form" ></formly-form>
+
+  <button class="submit-button-default m-2" 
+                [ngClass]="form.valid?'submit-button':''"
+                 type="submit"
+                 (click)="onSubmit()"
+                 >ثبت</button>
+  <button class="cancel-button cancel-button-default m-2"
+                  (click)="onCancel()"
+                  >انصراف</button>
+</form>
+<div *ngIf="show">نمره آزمون:{{score}}</div>
